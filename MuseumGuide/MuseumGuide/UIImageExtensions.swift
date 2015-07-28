@@ -16,8 +16,8 @@ extension UIImage {
         }
         
         let options: [String : AnyObject] = [CIDetectorAccuracy: CIDetectorAccuracyLow,
-            CIDetectorSmile: true,
-            CIDetectorEyeBlink: true]
+                                             CIDetectorSmile: true,
+                                             CIDetectorEyeBlink: true]
         
         let detector = CIDetector(ofType: CIDetectorTypeFace, context: nil, options: options)
         return detector.featuresInImage(image).flatMap { feature in
