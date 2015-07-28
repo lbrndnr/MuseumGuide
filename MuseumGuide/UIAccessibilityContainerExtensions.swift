@@ -13,19 +13,17 @@ extension UIView {
     func makeAccessibleUsingImageAccessibility(accessibility: ImageAccessibility) {
         isAccessibilityElement = false
         
-        let imageElement = UIAccessibilityElement(accessibilityContainer: self)
-        imageElement.isAccessibilityElement = true
-        imageElement.accessibilityLabel = accessibility.imageAccessibilityLabel
-        imageElement.accessibilityFrame = bounds
-        
-        accessibilityElements = [imageElement] + accessibility.faces.map { face in
+        let initializeNewAccessibilityElement: ((String, CGRect) -> UIAccessibilityElement) = { label, frame in
             let element = UIAccessibilityElement(accessibilityContainer: self)
             element.isAccessibilityElement = true
-            element.accessibilityLabel = "Face"
-            element.accessibilityFrame = face.frame
+            element.accessibilityLabel = label
+            element.accessibilityFrame = frame
             
             return element
         }
+        
+        let imageElement = initializeNewAccessibilityElement(accessibility.imageAccessibilityLabel, bounds)
+        accessibilityElements = [imageElement] + accessibility.faces.map { initializeNewAccessibilityElement("Face", $0.frame) }
     }
     
 }

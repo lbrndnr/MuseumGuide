@@ -13,7 +13,7 @@ public class AccessibleImageView: UIImageView {
     /// The image displayed in the image view.
     /// If the image is of type AccessibleImage the view sets
     /// its accessibility information accordingly.
-    override public var image: UIImage? {
+    public override var image: UIImage? {
         didSet {
             reloadAccessibility()
         }

@@ -11,9 +11,9 @@ import CoreImage
 
 public struct Face {
     
-    var frame: CGRect
-    var smiling: Bool
-    var blinking: Bool
+    public var frame: CGRect
+    public var smiling: Bool
+    public var blinking: Bool
     
     init(faceFeature: CIFaceFeature) {
         frame = faceFeature.bounds
