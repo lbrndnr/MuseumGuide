@@ -5,7 +5,7 @@
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 ## About
-MuseumGuide is a small framework that makes `UIImage`s accessible. It generates accessible labels to describe given images. It does so by extracting the exif payload and doing some basic image processing.
+MuseumGuide is a small framework that makes `UIImage` accessible. It generates accessible labels to describe given images. It does so by extracting the exif payload and doing some basic image processing.
 
 This is still at a very early stage. Check out the issues to see what's on the roadmap.
 
