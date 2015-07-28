@@ -28,7 +28,7 @@ public struct ImageAccessibility {
         
         var facesLabel: String?
         if faces.count > 0 {
-            facesLabel = String(format: NSLocalizedString("%d faces", comment: "The number of faces label"), faces.count)
+            facesLabel = String(format: NSLocalizedString("%d Faces", comment: "The number of faces label"), faces.count)
         }
         
         let labels = [imageLabel, portraitLabel, creationDateLabel, facesLabel].filter { $0 != nil }.map { $0! }.filter { $0.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) > 0 }

@@ -9,6 +9,8 @@ MuseumGuide is a small framework that makes `UIImage` accessible. It generates a
 
 This is still at a very early stage. Check out the issues to see what's on the roadmap.
 
+![Screenshot](https://raw.githubusercontent.com/larcus94/MuseumGuide/master/Screenshots/Example.png)
+
 ## Installation
 
 ### CocoaPods
