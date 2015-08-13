@@ -45,7 +45,7 @@ public class AccessibleImageView: UIImageView {
         if let image = image as? AccessibleImage {
             makeAccessibleUsingImageAccessibility(image.accessibility)
             
-            if UIAccessibilityIsVoiceOverRunning() || image.advancedAccessibilityLoaded || true {
+            if UIAccessibilityIsVoiceOverRunning() || image.advancedAccessibilityLoaded {
                 image.loadAdvancedAccessibility {
                     self.makeAccessibleUsingImageAccessibility(image.accessibility)
                 }

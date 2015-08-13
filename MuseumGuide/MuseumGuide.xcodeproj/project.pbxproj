@@ -15,8 +15,6 @@
 		4957BAB41B65455B00257695 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4957BAB21B65455B00257695 /* LaunchScreen.storyboard */; };
 		4957BABA1B6545DF00257695 /* MuseumGuide.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49799B3E1B617B5200A0A17C /* MuseumGuide.framework */; };
 		4957BABB1B6545DF00257695 /* MuseumGuide.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 49799B3E1B617B5200A0A17C /* MuseumGuide.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4957BAC31B65464500257695 /* bridge.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4957BAC11B65464500257695 /* bridge.jpg */; };
-		4957BAC41B65464500257695 /* bridge.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4957BAC11B65464500257695 /* bridge.jpg */; };
 		4957BAC51B65464500257695 /* metronomy.png in Resources */ = {isa = PBXBuildFile; fileRef = 4957BAC21B65464500257695 /* metronomy.png */; };
 		4957BAC61B65464500257695 /* metronomy.png in Resources */ = {isa = PBXBuildFile; fileRef = 4957BAC21B65464500257695 /* metronomy.png */; };
 		495C164E1B62B540001C4BB3 /* AccessibleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495C164D1B62B540001C4BB3 /* AccessibleImage.swift */; };
@@ -25,6 +23,8 @@
 		49799B421B617B5200A0A17C /* MuseumGuide.h in Headers */ = {isa = PBXBuildFile; fileRef = 49799B411B617B5200A0A17C /* MuseumGuide.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		49799B491B617B5200A0A17C /* MuseumGuide.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49799B3E1B617B5200A0A17C /* MuseumGuide.framework */; };
 		49799B4E1B617B5200A0A17C /* MuseumGuideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49799B4D1B617B5200A0A17C /* MuseumGuideTests.swift */; };
+		499003381B69584F0020ABD8 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 499003371B69584F0020ABD8 /* Nimble.framework */; };
+		49BC767B1B695DB600C336D8 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 499003371B69584F0020ABD8 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +56,16 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		49BC767A1B695DAC00C336D8 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				49BC767B1B695DB600C336D8 /* Nimble.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -67,7 +77,6 @@
 		4957BAAB1B65455B00257695 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4957BAB31B65455B00257695 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4957BAB51B65455B00257695 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4957BAC11B65464500257695 /* bridge.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bridge.jpg; sourceTree = "<group>"; };
 		4957BAC21B65464500257695 /* metronomy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = metronomy.png; sourceTree = "<group>"; };
 		495C164D1B62B540001C4BB3 /* AccessibleImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessibleImage.swift; sourceTree = "<group>"; };
 		496247171B63EA960056B138 /* Face.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Face.swift; sourceTree = "<group>"; };
@@ -78,6 +87,7 @@
 		49799B481B617B5200A0A17C /* MuseumGuideTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MuseumGuideTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		49799B4D1B617B5200A0A17C /* MuseumGuideTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuseumGuideTests.swift; sourceTree = "<group>"; };
 		49799B4F1B617B5200A0A17C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		499003371B69584F0020ABD8 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = ../Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +111,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				49799B491B617B5200A0A17C /* MuseumGuide.framework in Frameworks */,
+				499003381B69584F0020ABD8 /* Nimble.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,7 +140,6 @@
 		4957BAC01B65464500257695 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				4957BAC11B65464500257695 /* bridge.jpg */,
 				4957BAC21B65464500257695 /* metronomy.png */,
 			);
 			path = Images;
@@ -174,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				49799B4D1B617B5200A0A17C /* MuseumGuideTests.swift */,
+				499003391B6958A30020ABD8 /* Frameworks */,
 				49799B581B618A8600A0A17C /* Supporting Files */,
 			);
 			path = MuseumGuideTests;
@@ -185,6 +196,15 @@
 				49799B4F1B617B5200A0A17C /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		499003391B6958A30020ABD8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				499003371B69584F0020ABD8 /* Nimble.framework */,
+			);
+			name = Frameworks;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		49B43EE11B617BAA006375B5 /* Supporting Files */ = {
@@ -254,6 +274,7 @@
 				49799B441B617B5200A0A17C /* Sources */,
 				49799B451B617B5200A0A17C /* Frameworks */,
 				49799B461B617B5200A0A17C /* Resources */,
+				49BC767A1B695DAC00C336D8 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -310,7 +331,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4957BAC41B65464500257695 /* bridge.jpg in Resources */,
 				4957BAC61B65464500257695 /* metronomy.png in Resources */,
 				4957BAB41B65455B00257695 /* LaunchScreen.storyboard in Resources */,
 			);
@@ -328,7 +348,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4957BAC51B65464500257695 /* metronomy.png in Resources */,
-				4957BAC31B65464500257695 /* bridge.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -543,6 +562,7 @@
 		49799B561B617B5200A0A17C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../Carthage/Build/iOS";
 				INFOPLIST_FILE = MuseumGuideTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ch.laurinbrandner.MuseumGuideTests;
@@ -553,6 +573,7 @@
 		49799B571B617B5200A0A17C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../Carthage/Build/iOS";
 				INFOPLIST_FILE = MuseumGuideTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ch.laurinbrandner.MuseumGuideTests;
@@ -570,6 +591,7 @@
 				4957BAB81B65455B00257695 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		49799B381B617B5200A0A17C /* Build configuration list for PBXProject "MuseumGuide" */ = {
 			isa = XCConfigurationList;

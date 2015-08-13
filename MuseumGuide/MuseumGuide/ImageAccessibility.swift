@@ -15,9 +15,6 @@ public struct ImageAccessibility {
     public var creationDate: NSDate?
     public var portrait: Bool
     
-    var brightness: Float = 1
-    var sharpness: Float = 1
-    
     // MARK: - Accessibility
     
     public var imageAccessibilityLabel: String {

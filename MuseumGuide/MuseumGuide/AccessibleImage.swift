@@ -17,18 +17,18 @@ public class AccessibleImage: UIImage {
     
     // MARK: - Initialization
     
-    public override init?(data: NSData) {
-        super.init(data: data)
-        
-        // TODO: Don't cache the source
-        accessibility = loadBasicAccessibilityWithSource(CGImageSourceCreateWithData(data, nil))
-    }
-    
     public override init?(contentsOfFile path: String) {
         super.init(contentsOfFile: path)
         
         let URL = NSURL(fileURLWithPath: path)
         accessibility = loadBasicAccessibilityWithSource(CGImageSourceCreateWithURL(URL, nil))
+    }
+    
+    public override init?(data: NSData) {
+        super.init(data: data)
+        
+        // TODO: Don't cache the source
+        accessibility = loadBasicAccessibilityWithSource(CGImageSourceCreateWithData(data, nil))
     }
 
     public required convenience init?(imageLiteral name: String) {
@@ -61,7 +61,7 @@ public class AccessibleImage: UIImage {
     // MARK: - Advanced Accessibility
     
     /// Loads more extensive accessibility of the image
-    public func loadAdvancedAccessibility(completion: dispatch_block_t? = nil) {
+    public func loadAdvancedAccessibility(completion: (() -> ())? = nil) {
         if advancedAccessibilityLoaded {
             completion?()
         }

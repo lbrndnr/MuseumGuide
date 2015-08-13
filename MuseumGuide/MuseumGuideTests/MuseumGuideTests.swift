@@ -7,9 +7,12 @@
 //
 
 import XCTest
+import Nimble
 @testable import MuseumGuide
 
 class MuseumGuideTests: XCTestCase {
+    
+    var imageView = AccessibleImageView(frame: UIScreen.mainScreen().bounds)
 
     let bundle = NSBundle(forClass: MuseumGuideTests.self)
     
@@ -19,7 +22,6 @@ class MuseumGuideTests: XCTestCase {
     func testFaces() {
         let path = bundle.pathForResource("metronomy", ofType: "png")!
         let image = AccessibleImage(contentsOfFile: path)
-        let imageView = AccessibleImageView(frame: UIScreen.mainScreen().bounds)
         imageView.image = image
         
         for element in imageView.accessibilityElements! {
@@ -27,6 +29,21 @@ class MuseumGuideTests: XCTestCase {
                 print(element.accessibilityFrame)
             }
         }
+    }
+    
+    // Photo, Landscape, October asdf, 12: 02, one face, crisp, very bright
+    func testExplicitLoading() {
+        let path = bundle.pathForResource("mø", ofType: "png")!
+        let image = AccessibleImage(contentsOfFile: path)
+        
+        var accessibilityLabel: String?
+        image?.loadAdvancedAccessibility {
+            print(accessibilityLabel)
+            accessibilityLabel = image?.accessibility.imageAccessibilityLabel
+        }
+        
+        
+        expect(accessibilityLabel).toEventually(equal(""))
     }
     
 }
