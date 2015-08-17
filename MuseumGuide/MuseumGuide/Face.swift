@@ -22,3 +22,17 @@ public struct Face {
     }
     
 }
+
+extension Face: Hashable {
+    
+    public var hashValue: Int {
+        return Int(smiling) ^ Int(blinking)
+    }
+    
+}
+
+public func ==(lhs: Face, rhs: Face) -> Bool {
+    return lhs.frame == rhs.frame &&
+           lhs.smiling == rhs.smiling &&
+           lhs.blinking == rhs.blinking
+}

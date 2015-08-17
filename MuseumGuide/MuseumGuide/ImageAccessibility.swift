@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct ImageAccessibility {
+public struct ImageAccessibility: Equatable {
     
     public var faces: [Face]
     
@@ -77,3 +77,10 @@ public struct ImageAccessibility {
     }
     
 }
+
+public func ==(lhs: ImageAccessibility, rhs: ImageAccessibility) -> Bool {
+    return lhs.faces == rhs.faces &&
+           lhs.creationDate == rhs.creationDate &&
+           lhs.portrait == rhs.portrait
+}
+
