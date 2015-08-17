@@ -10,7 +10,7 @@ import Foundation
 
 public struct ImageAccessibility: Equatable {
     
-    public var faces: [Face]
+    public var faces: [ImageFaceAccessibility]
     
     public var creationDate: NSDate?
     public var portrait: Bool

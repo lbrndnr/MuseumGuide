@@ -18,7 +18,7 @@
 		4957BAC51B65464500257695 /* metronomy.png in Resources */ = {isa = PBXBuildFile; fileRef = 4957BAC21B65464500257695 /* metronomy.png */; };
 		4957BAC61B65464500257695 /* metronomy.png in Resources */ = {isa = PBXBuildFile; fileRef = 4957BAC21B65464500257695 /* metronomy.png */; };
 		495C164E1B62B540001C4BB3 /* AccessibleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495C164D1B62B540001C4BB3 /* AccessibleImage.swift */; };
-		496247181B63EA960056B138 /* Face.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496247171B63EA960056B138 /* Face.swift */; };
+		496247181B63EA960056B138 /* ImageFaceAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496247171B63EA960056B138 /* ImageFaceAccessibility.swift */; };
 		4976F2121B63F4A200BC881F /* AccessibleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4976F2111B63F4A200BC881F /* AccessibleImageView.swift */; };
 		49799B421B617B5200A0A17C /* MuseumGuide.h in Headers */ = {isa = PBXBuildFile; fileRef = 49799B411B617B5200A0A17C /* MuseumGuide.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		49799B491B617B5200A0A17C /* MuseumGuide.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49799B3E1B617B5200A0A17C /* MuseumGuide.framework */; };
@@ -80,7 +80,7 @@
 		4957BAB51B65455B00257695 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4957BAC21B65464500257695 /* metronomy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = metronomy.png; sourceTree = "<group>"; };
 		495C164D1B62B540001C4BB3 /* AccessibleImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessibleImage.swift; sourceTree = "<group>"; };
-		496247171B63EA960056B138 /* Face.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Face.swift; sourceTree = "<group>"; };
+		496247171B63EA960056B138 /* ImageFaceAccessibility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageFaceAccessibility.swift; sourceTree = "<group>"; };
 		4976F2111B63F4A200BC881F /* AccessibleImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessibleImageView.swift; sourceTree = "<group>"; };
 		49799B3E1B617B5200A0A17C /* MuseumGuide.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MuseumGuide.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		49799B411B617B5200A0A17C /* MuseumGuide.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MuseumGuide.h; sourceTree = "<group>"; };
@@ -172,7 +172,7 @@
 		49799B401B617B5200A0A17C /* MuseumGuide */ = {
 			isa = PBXGroup;
 			children = (
-				496247171B63EA960056B138 /* Face.swift */,
+				496247171B63EA960056B138 /* ImageFaceAccessibility.swift */,
 				4957BA9D1B64F92F00257695 /* ImageAccessibility.swift */,
 				4957BA9F1B65046600257695 /* UIImageExtensions.swift */,
 				4957BAA11B652BF400257695 /* UIAccessibilityContainerExtensions.swift */,
@@ -372,7 +372,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4957BAA21B652BF400257695 /* UIAccessibilityContainerExtensions.swift in Sources */,
-				496247181B63EA960056B138 /* Face.swift in Sources */,
+				496247181B63EA960056B138 /* ImageFaceAccessibility.swift in Sources */,
 				4976F2121B63F4A200BC881F /* AccessibleImageView.swift in Sources */,
 				4957BAA01B65046600257695 /* UIImageExtensions.swift in Sources */,
 				4957BA9E1B64F92F00257695 /* ImageAccessibility.swift in Sources */,

@@ -1,5 +1,5 @@
 //
-//  Face.swift
+//  ImageFaceAccessibility.swift
 //  MuseumGuide
 //
 //  Created by Laurin Brandner on 25/07/2015.
@@ -9,7 +9,7 @@
 import Foundation
 import CoreImage
 
-public struct Face {
+public struct ImageFaceAccessibility {
     
     public var frame: CGRect
     public var smiling: Bool
@@ -23,7 +23,7 @@ public struct Face {
     
 }
 
-extension Face: Hashable {
+extension ImageFaceAccessibility: Hashable {
     
     public var hashValue: Int {
         return Int(smiling) ^ Int(blinking)
@@ -31,7 +31,7 @@ extension Face: Hashable {
     
 }
 
-public func ==(lhs: Face, rhs: Face) -> Bool {
+public func ==(lhs: ImageFaceAccessibility, rhs: ImageFaceAccessibility) -> Bool {
     return lhs.frame == rhs.frame &&
            lhs.smiling == rhs.smiling &&
            lhs.blinking == rhs.blinking

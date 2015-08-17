@@ -10,7 +10,7 @@ import UIKit
 
 extension UIImage {
     
-    func detectFaces() -> [Face] {
+    func detectFaces() -> [ImageFaceAccessibility] {
         guard let image = CoreImage.CIImage(image: self) else {
             return []
         }
@@ -21,7 +21,7 @@ extension UIImage {
         
         let detector = CIDetector(ofType: CIDetectorTypeFace, context: nil, options: options)
         return detector.featuresInImage(image).flatMap { feature in
-            return (feature as? CIFaceFeature).map { Face(faceFeature: $0) }
+            return (feature as? CIFaceFeature).map { ImageFaceAccessibility(faceFeature: $0) }
         }
     }
     
