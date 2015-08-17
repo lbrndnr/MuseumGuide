@@ -102,4 +102,27 @@ class MuseumGuideTests: XCTestCase {
         expect(loading).toEventually(equal(loadingOrder))
     }
     
+    func testAccessibleImageInitialization() {
+        let path = bundle.pathForResource("mø", ofType: "png")!
+        let data = NSData(contentsOfFile: path)!
+        let scale = UIScreen.mainScreen().scale
+        
+        let contentsOfFileImage = AccessibleImage(contentsOfFile: path)!
+        contentsOfFileImage.loadAdvancedAccessibility()
+        
+        let dataImage = AccessibleImage(data: data)!
+        dataImage.loadAdvancedAccessibility()
+        
+        let dataWithScaleImage = AccessibleImage(data: data, scale: scale)!
+        dataWithScaleImage.loadAdvancedAccessibility()
+        
+        waitForAccessibleImageToLoad(contentsOfFileImage)
+        waitForAccessibleImageToLoad(dataImage)
+        waitForAccessibleImageToLoad(dataWithScaleImage)
+        
+        expect(contentsOfFileImage.accessibility).to(equal(dataImage.accessibility))
+        expect(contentsOfFileImage.accessibility).to(equal(dataWithScaleImage.accessibility))
+        expect(dataWithScaleImage.accessibility).to(equal(dataImage.accessibility))
+    }
+    
 }

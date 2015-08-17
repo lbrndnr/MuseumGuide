@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreGraphics
 import CoreImage
 import ImageIO
 
@@ -36,6 +37,16 @@ public class AccessibleImage: UIImage {
     
     // MARK: - Initialization
     
+//    public init?(named name: String) {
+//        super.init(named: name)
+//        
+//    }
+    
+//    @available(iOS 8.0, *)
+//    public init?(named name: String, inBundle bundle: NSBundle?, compatibleWithTraitCollection traitCollection: UITraitCollection?) {
+//        
+//    }
+    
     public override init?(contentsOfFile path: String) {
         super.init(contentsOfFile: path)
         
@@ -49,8 +60,16 @@ public class AccessibleImage: UIImage {
         // TODO: Don't cache the source
         accessibility = loadBasicAccessibilityWithSource(CGImageSourceCreateWithData(data, nil))
     }
+    
+    @available(iOS 6.0, *)
+    public override init?(data: NSData, scale: CGFloat) {
+        super.init(data: data, scale: scale)
+        
+        // TODO: Don't cache the source
+        accessibility = loadBasicAccessibilityWithSource(CGImageSourceCreateWithData(data, nil))
+    }
 
-    public required convenience init?(imageLiteral name: String) {
+    public required init?(imageLiteral name: String) {
         fatalError("init(imageLiteral:) has not been implemented")
     }
 

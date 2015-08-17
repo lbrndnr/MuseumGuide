@@ -71,7 +71,7 @@ public struct ImageAccessibility: Equatable {
     // MARK: - Initialization
     
     init(creationDate creationDateString: String?, portrait: Bool) {
-        faces = []
+        self.faces = []
         self.portrait = portrait
         self.creationDate = creationDateString.flatMap { ImageAccessibility.exifParsingDateFormatter.dateFromString($0) }
     }
