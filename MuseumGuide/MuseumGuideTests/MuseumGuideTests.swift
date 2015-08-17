@@ -27,7 +27,7 @@ class MuseumGuideTests: XCTestCase {
         let image = AccessibleImage(contentsOfFile: path)!
         
         image.loadAdvancedAccessibility()
-        self.waitForAccessibleImageToLoad(image)
+        waitForAccessibleImageToLoad(image)
         imageView.image = image
         
         return image
@@ -84,6 +84,22 @@ class MuseumGuideTests: XCTestCase {
         
         expectBlinkingAccessibilityToBe(accessibility, blinking: [false])
         expectSmilingAccessibilityToBe(accessibility, smiling: [false])
+    }
+    
+    func testAccessibilityLoadingCompletionHandling() {
+        let path = bundle.pathForResource("mø", ofType: "png")!
+        let image = AccessibleImage(contentsOfFile: path)!
+
+        var loading = [Int]()
+        let loadingOrder = [Int](0 ..< 10)
+        for i in loadingOrder {
+            image.loadAdvancedAccessibility {
+                loading.append(i)
+            }
+        }
+        
+        waitForAccessibleImageToLoad(image)
+        expect(loading).toEventually(equal(loadingOrder))
     }
     
 }

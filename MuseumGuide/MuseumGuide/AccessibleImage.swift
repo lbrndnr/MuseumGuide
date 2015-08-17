@@ -13,9 +13,26 @@ import ImageIO
 public class AccessibleImage: UIImage {
     
     public private(set) var advancedAccessibilityLoaded = false
-    public private(set) var accessibility: ImageAccessibility!
+    
+    private var _accessibility: ImageAccessibility!
+    public private(set) var accessibility: ImageAccessibility! {
+        get {
+            var value: ImageAccessibility?
+            dispatch_sync(accessorQueue) {
+                value = self._accessibility
+            }
+            
+            return value
+        }
+        set(value) {
+            dispatch_sync(accessorQueue) {
+                self._accessibility = value
+            }
+        }
+    }
     
     let accessibilityLoadingGroup = dispatch_group_create()
+    private let accessorQueue = dispatch_queue_create("AccessibleImageAccessorQueue", DISPATCH_QUEUE_SERIAL)
     
     // MARK: - Initialization
     
