@@ -16,34 +16,74 @@ class MuseumGuideTests: XCTestCase {
 
     let bundle = NSBundle(forClass: MuseumGuideTests.self)
     
-    // Describes the input image, something along the following lines
-    // Photo, portrait, July 15th, 18:32, one face, crisp, well light image
-    // tapping on image -> face one: smiling/ blinking
-    func testFaces() {
-        let path = bundle.pathForResource("metronomy", ofType: "png")!
-        let image = AccessibleImage(contentsOfFile: path)
-        imageView.image = image
-        
-        for element in imageView.accessibilityElements! {
-            if let element = element as? UIAccessibilityElement {
-                print(element.accessibilityFrame)
-            }
-        }
+    // MARK: - Utilities
+    
+    private func waitForAccessibleImageToLoad(image: AccessibleImage) {
+        let timeout = dispatch_time(DISPATCH_TIME_NOW, Int64(10 * Double(NSEC_PER_SEC)))
+        dispatch_group_wait(image.accessibilityLoadingGroup, timeout)
     }
     
-    // Photo, Landscape, October asdf, 12: 02, one face, crisp, very bright
-    func testExplicitLoading() {
-        let path = bundle.pathForResource("mø", ofType: "png")!
-        let image = AccessibleImage(contentsOfFile: path)
+    private func loadImageWithPath(path: String) -> AccessibleImage {
+        let image = AccessibleImage(contentsOfFile: path)!
         
-        var accessibilityLabel: String?
-        image?.loadAdvancedAccessibility {
-            print(accessibilityLabel)
-            accessibilityLabel = image?.accessibility.imageAccessibilityLabel
-        }
+        image.loadAdvancedAccessibility()
+        self.waitForAccessibleImageToLoad(image)
+        imageView.image = image
         
+        return image
+    }
+    
+    // MARK: - Expectations
+    
+    private func expectBasicAccessibilityToBe(accessibility: ImageAccessibility, portrait: Bool, timestamp: NSTimeInterval) {
+        expect(accessibility.portrait).to(equal(portrait))
+        expect(accessibility.creationDate!.timeIntervalSince1970).to(equal(timestamp))
+    }
+    
+    private func expectBlinkingAccessibilityToBe(accessibility: ImageAccessibility, blinking: [Bool]) {
+        let imageBlinking = accessibility.faces
+                                         .map { $0.blinking }
+                                         .reduce([]) { memo, blinking in
+                                             return memo + [blinking]
+                                         }
+        expect(blinking).to(equal(imageBlinking))
+    }
+    
+    private func expectSmilingAccessibilityToBe(accessibility: ImageAccessibility, smiling: [Bool]) {
+        let imageSmiling = accessibility.faces
+                                        .map { $0.smiling }
+                                        .reduce([]) { memo, blinking in
+                                            return memo + [blinking]
+                                        }
+        expect(smiling).to(equal(imageSmiling))
+    }
+    
+    // MARK: - Tests
+    
+    func testMetronomyPicture() {
+        let image = loadImageWithPath(bundle.pathForResource("metronomy", ofType: "png")!)
+        let accessibility = image.accessibility
         
-        expect(accessibilityLabel).toEventually(equal(""))
+        expectBasicAccessibilityToBe(accessibility, portrait: false, timestamp: 1385286452)
+        
+        expect(accessibility.faces.count).to(equal(4))
+        expect(self.imageView.accessibilityElements!.count).to(equal(5))
+        
+        expectBlinkingAccessibilityToBe(accessibility, blinking: [false, false, false, false])
+        expectSmilingAccessibilityToBe(accessibility, smiling: [false, false, false, false])
+    }
+
+    func testMøPicture() {
+        let image = loadImageWithPath(bundle.pathForResource("mø", ofType: "png")!)
+        let accessibility = image.accessibility
+        
+        expectBasicAccessibilityToBe(accessibility, portrait: false, timestamp: 1382565723)
+        
+        expect(accessibility.faces.count).to(equal(1))
+        expect(self.imageView.accessibilityElements!.count).to(equal(2))
+        
+        expectBlinkingAccessibilityToBe(accessibility, blinking: [false])
+        expectSmilingAccessibilityToBe(accessibility, smiling: [false])
     }
     
 }

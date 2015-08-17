@@ -23,6 +23,7 @@
 		49799B421B617B5200A0A17C /* MuseumGuide.h in Headers */ = {isa = PBXBuildFile; fileRef = 49799B411B617B5200A0A17C /* MuseumGuide.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		49799B491B617B5200A0A17C /* MuseumGuide.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49799B3E1B617B5200A0A17C /* MuseumGuide.framework */; };
 		49799B4E1B617B5200A0A17C /* MuseumGuideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49799B4D1B617B5200A0A17C /* MuseumGuideTests.swift */; };
+		498AA3AE1B7DBEB600668AD9 /* mø.png in Resources */ = {isa = PBXBuildFile; fileRef = 498AA3AD1B7DBEB600668AD9 /* mø.png */; };
 		499003381B69584F0020ABD8 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 499003371B69584F0020ABD8 /* Nimble.framework */; };
 		49BC767B1B695DB600C336D8 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 499003371B69584F0020ABD8 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -87,6 +88,7 @@
 		49799B481B617B5200A0A17C /* MuseumGuideTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MuseumGuideTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		49799B4D1B617B5200A0A17C /* MuseumGuideTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuseumGuideTests.swift; sourceTree = "<group>"; };
 		49799B4F1B617B5200A0A17C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		498AA3AD1B7DBEB600668AD9 /* mø.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mø.png"; sourceTree = "<group>"; };
 		499003371B69584F0020ABD8 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = ../Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -140,6 +142,7 @@
 		4957BAC01B65464500257695 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				498AA3AD1B7DBEB600668AD9 /* mø.png */,
 				4957BAC21B65464500257695 /* metronomy.png */,
 			);
 			path = Images;
@@ -347,6 +350,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				498AA3AE1B7DBEB600668AD9 /* mø.png in Resources */,
 				4957BAC51B65464500257695 /* metronomy.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

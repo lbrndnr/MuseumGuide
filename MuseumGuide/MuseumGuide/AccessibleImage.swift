@@ -15,6 +15,8 @@ public class AccessibleImage: UIImage {
     public private(set) var advancedAccessibilityLoaded = false
     public private(set) var accessibility: ImageAccessibility!
     
+    let accessibilityLoadingGroup = dispatch_group_create()
+    
     // MARK: - Initialization
     
     public override init?(contentsOfFile path: String) {
@@ -62,19 +64,21 @@ public class AccessibleImage: UIImage {
     
     /// Loads more extensive accessibility of the image
     public func loadAdvancedAccessibility(completion: (() -> ())? = nil) {
+        let backgroundQueue = dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)
+        
         if advancedAccessibilityLoaded {
-            completion?()
-        }
-        else {
-            dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)) {
-                let accessibility = self.loadAdvancedAccessibility(self.accessibility)
-                dispatch_async(dispatch_get_main_queue()) {
-                    self.advancedAccessibilityLoaded = true
-                    self.accessibility = accessibility
-                    completion?()
-                }
+            dispatch_group_notify(accessibilityLoadingGroup, dispatch_get_main_queue()) {
+                completion?()
             }
         }
+        else {
+            dispatch_group_async(accessibilityLoadingGroup, backgroundQueue) {
+                self.accessibility = self.loadAdvancedAccessibility(self.accessibility)
+                completion?()
+            }
+        }
+        
+        self.advancedAccessibilityLoaded = true
     }
     
     private func loadAdvancedAccessibility(var basicAccessibility: ImageAccessibility) -> ImageAccessibility {
