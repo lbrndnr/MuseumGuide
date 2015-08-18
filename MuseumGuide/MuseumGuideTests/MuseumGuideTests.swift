@@ -11,8 +11,6 @@ import Nimble
 @testable import MuseumGuide
 
 class MuseumGuideTests: XCTestCase {
-    
-    var imageView = AccessibleImageView(frame: UIScreen.mainScreen().bounds)
 
     let bundle = NSBundle(forClass: MuseumGuideTests.self)
     
@@ -28,7 +26,6 @@ class MuseumGuideTests: XCTestCase {
         
         image.loadAdvancedAccessibility()
         waitForAccessibleImageToLoad(image)
-        imageView.image = image
         
         return image
     }
@@ -67,8 +64,6 @@ class MuseumGuideTests: XCTestCase {
         expectBasicAccessibilityToBe(accessibility, portrait: false, timestamp: 1385286452)
         
         expect(accessibility.faces.count).to(equal(4))
-        expect(self.imageView.accessibilityElements!.count).to(equal(5))
-        
         expectBlinkingAccessibilityToBe(accessibility, blinking: [false, false, false, false])
         expectSmilingAccessibilityToBe(accessibility, smiling: [false, false, false, false])
     }
@@ -80,8 +75,6 @@ class MuseumGuideTests: XCTestCase {
         expectBasicAccessibilityToBe(accessibility, portrait: false, timestamp: 1382565723)
         
         expect(accessibility.faces.count).to(equal(1))
-        expect(self.imageView.accessibilityElements!.count).to(equal(2))
-        
         expectBlinkingAccessibilityToBe(accessibility, blinking: [false])
         expectSmilingAccessibilityToBe(accessibility, smiling: [false])
     }
@@ -123,6 +116,21 @@ class MuseumGuideTests: XCTestCase {
         expect(contentsOfFileImage.accessibility).to(equal(dataImage.accessibility))
         expect(contentsOfFileImage.accessibility).to(equal(dataWithScaleImage.accessibility))
         expect(dataWithScaleImage.accessibility).to(equal(dataImage.accessibility))
+    }
+    
+    func testImageViewAccesibility() {
+        let path = bundle.pathForResource("metronomy", ofType: "png")!
+        let image = AccessibleImage(contentsOfFile: path)!
+        
+        let window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        let imageView = UIImageView(frame: window.bounds)
+        imageView.image = image
+        
+        window.addSubview(imageView)
+        
+        waitForAccessibleImageToLoad(image)
+        
+        expect(imageView.accessibilityElements?.count).to(equal(5))
     }
     
 }

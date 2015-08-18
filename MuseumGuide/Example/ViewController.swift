@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     override func loadView() {
         super.loadView()
         
-        let imageView = AccessibleImageView(frame: view.bounds)
+        let imageView = UIImageView(frame: view.bounds)
         imageView.contentMode = .ScaleAspectFit
         
         let path = NSBundle.mainBundle().pathForResource("metronomy", ofType: "png")
