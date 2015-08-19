@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreImage
 
 extension UIImage {
     
@@ -19,10 +20,15 @@ extension UIImage {
                                              CIDetectorSmile: true,
                                              CIDetectorEyeBlink: true]
         
+        var faceFrameTransform = CGAffineTransformMakeTranslation(0, size.height)
+        faceFrameTransform = CGAffineTransformScale(faceFrameTransform, 1, -1)
+        
         let detector = CIDetector(ofType: CIDetectorTypeFace, context: nil, options: options)
-        return detector.featuresInImage(image).flatMap { feature in
-            return (feature as? CIFaceFeature).map { ImageFaceAccessibility(faceFeature: $0) }
-        }
+        return detector.featuresInImage(image)
+                       .flatMap { feature in
+                           return (feature as? CIFaceFeature).map { ImageFaceAccessibility(faceFeature: $0, transform: faceFrameTransform) }
+                       }
+                       .sort { $0.frame.minX < $1.frame.minX }
     }
     
 }

@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		4957BA9E1B64F92F00257695 /* ImageAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4957BA9D1B64F92F00257695 /* ImageAccessibility.swift */; };
 		4957BAA01B65046600257695 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4957BA9F1B65046600257695 /* UIImageExtensions.swift */; };
-		4957BAA21B652BF400257695 /* UIAccessibilityContainerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4957BAA11B652BF400257695 /* UIAccessibilityContainerExtensions.swift */; };
 		4957BAAA1B65455B00257695 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4957BAA91B65455B00257695 /* AppDelegate.swift */; };
 		4957BAAC1B65455B00257695 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4957BAAB1B65455B00257695 /* ViewController.swift */; };
 		4957BAB41B65455B00257695 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4957BAB21B65455B00257695 /* LaunchScreen.storyboard */; };
@@ -72,7 +71,6 @@
 /* Begin PBXFileReference section */
 		4957BA9D1B64F92F00257695 /* ImageAccessibility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageAccessibility.swift; sourceTree = "<group>"; };
 		4957BA9F1B65046600257695 /* UIImageExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
-		4957BAA11B652BF400257695 /* UIAccessibilityContainerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIAccessibilityContainerExtensions.swift; sourceTree = "<group>"; };
 		4957BAA71B65455B00257695 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4957BAA91B65455B00257695 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4957BAAB1B65455B00257695 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -175,7 +173,6 @@
 				496247171B63EA960056B138 /* ImageFaceAccessibility.swift */,
 				4957BA9D1B64F92F00257695 /* ImageAccessibility.swift */,
 				495C164D1B62B540001C4BB3 /* AccessibleImage.swift */,
-				4957BAA11B652BF400257695 /* UIAccessibilityContainerExtensions.swift */,
 				4957BA9F1B65046600257695 /* UIImageExtensions.swift */,
 				498F0B3A1B83391F0090EE5C /* UIImageViewExtensions.swift */,
 				49B43EE11B617BAA006375B5 /* Supporting Files */,
@@ -373,7 +370,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				498F0B3B1B83391F0090EE5C /* UIImageViewExtensions.swift in Sources */,
-				4957BAA21B652BF400257695 /* UIAccessibilityContainerExtensions.swift in Sources */,
 				496247181B63EA960056B138 /* ImageFaceAccessibility.swift in Sources */,
 				4957BAA01B65046600257695 /* UIImageExtensions.swift in Sources */,
 				4957BA9E1B64F92F00257695 /* ImageAccessibility.swift in Sources */,
@@ -424,6 +420,7 @@
 				INFOPLIST_FILE = Example/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "-D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = ch.laurinbrandner.Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

@@ -15,8 +15,8 @@ public struct ImageFaceAccessibility {
     public var smiling: Bool
     public var blinking: Bool
     
-    init(faceFeature: CIFaceFeature) {
-        frame = faceFeature.bounds
+    init(faceFeature: CIFaceFeature, transform: CGAffineTransform) {
+        frame = CGRectApplyAffineTransform(faceFeature.bounds, transform)
         smiling = faceFeature.hasSmile
         blinking = faceFeature.leftEyeClosed || faceFeature.rightEyeClosed
     }

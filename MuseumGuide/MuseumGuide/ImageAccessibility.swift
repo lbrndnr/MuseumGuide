@@ -32,11 +32,11 @@ public struct ImageAccessibility: Equatable {
         return ", ".join(labels)
     }
     
-    public var facesAccessibilityLabels: [String] {
+    public var faceAccessibilityLabels: [String] {
         return faces.map { face in
             let faceLabel: String
             
-            let index: Int? = 2
+            let index = faces.indexOf(face)
             if let index = index {
                 faceLabel = String(format: NSLocalizedString("Face %d", comment: "The face label, indexed"), index+1)
             }
