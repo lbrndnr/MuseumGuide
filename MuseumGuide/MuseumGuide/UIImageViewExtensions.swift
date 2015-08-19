@@ -98,8 +98,6 @@ extension UIImageView {
             element.accessibilityLabel = label
             element.accessibilityFrame = frame
             
-            print(frame)
-            
             return element
         }
         

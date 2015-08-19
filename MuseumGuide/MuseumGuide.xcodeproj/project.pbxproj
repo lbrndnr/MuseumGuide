@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		494F37D31B848540003BB12E /* mø.png in Resources */ = {isa = PBXBuildFile; fileRef = 498AA3AD1B7DBEB600668AD9 /* mø.png */; };
 		4957BA9E1B64F92F00257695 /* ImageAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4957BA9D1B64F92F00257695 /* ImageAccessibility.swift */; };
 		4957BAA01B65046600257695 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4957BA9F1B65046600257695 /* UIImageExtensions.swift */; };
 		4957BAAA1B65455B00257695 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4957BAA91B65455B00257695 /* AppDelegate.swift */; };
@@ -332,6 +333,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				494F37D31B848540003BB12E /* mø.png in Resources */,
 				4957BAC61B65464500257695 /* metronomy.png in Resources */,
 				4957BAB41B65455B00257695 /* LaunchScreen.storyboard in Resources */,
 			);

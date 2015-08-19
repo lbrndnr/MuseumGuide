@@ -16,15 +16,13 @@ extension UIImage {
             return []
         }
         
-        let options: [String : AnyObject] = [CIDetectorAccuracy: CIDetectorAccuracyLow,
-                                             CIDetectorSmile: true,
-                                             CIDetectorEyeBlink: true]
-        
         var faceFrameTransform = CGAffineTransformMakeTranslation(0, size.height)
         faceFrameTransform = CGAffineTransformScale(faceFrameTransform, 1, -1)
         
-        let detector = CIDetector(ofType: CIDetectorTypeFace, context: nil, options: options)
-        return detector.featuresInImage(image)
+        let detector = CIDetector(ofType: CIDetectorTypeFace, context: nil, options: [CIDetectorAccuracy: CIDetectorAccuracyLow])
+        let options: [String : AnyObject] = [CIDetectorSmile: true, CIDetectorEyeBlink: true]
+        
+        return detector.featuresInImage(image, options: options)
                        .flatMap { feature in
                            return (feature as? CIFaceFeature).map { ImageFaceAccessibility(faceFeature: $0, transform: faceFrameTransform) }
                        }
