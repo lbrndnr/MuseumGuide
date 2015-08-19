@@ -14,7 +14,9 @@ This is still at a very early stage. Check out the issues to see what's on the r
 ## Installation
 
 ### CocoaPods
-I will release this with CocoaPods once it is a little more mature.
+```ruby
+pod "MuseumGuide", "~> 0.0.1"
+```
 
 ###Carthage
 ```objc
