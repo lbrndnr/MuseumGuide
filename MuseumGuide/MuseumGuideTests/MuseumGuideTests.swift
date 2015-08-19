@@ -65,7 +65,7 @@ class MuseumGuideTests: XCTestCase {
         
         expect(accessibility.faces.count).to(equal(4))
         expectBlinkingAccessibilityToBe(accessibility, blinking: [false, false, false, false])
-        expectSmilingAccessibilityToBe(accessibility, smiling: [false, false, false, false])
+        expectSmilingAccessibilityToBe(accessibility, smiling: [false, true, false, false])
     }
 
     func testMøPicture() {
@@ -75,7 +75,7 @@ class MuseumGuideTests: XCTestCase {
         expectBasicAccessibilityToBe(accessibility, portrait: false, timestamp: 1382565723)
         
         expect(accessibility.faces.count).to(equal(1))
-        expectBlinkingAccessibilityToBe(accessibility, blinking: [false])
+        expectBlinkingAccessibilityToBe(accessibility, blinking: [true])
         expectSmilingAccessibilityToBe(accessibility, smiling: [false])
     }
     

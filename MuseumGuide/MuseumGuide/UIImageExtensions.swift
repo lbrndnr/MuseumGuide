@@ -26,7 +26,6 @@ extension UIImage {
                        .flatMap { feature in
                            return (feature as? CIFaceFeature).map { ImageFaceAccessibility(faceFeature: $0, transform: faceFrameTransform) }
                        }
-                       .sort { $0.frame.minX < $1.frame.minX }
     }
     
 }
