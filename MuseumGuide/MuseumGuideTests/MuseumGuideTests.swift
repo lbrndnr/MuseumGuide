@@ -98,7 +98,6 @@ class MuseumGuideTests: XCTestCase {
     func testAccessibleImageInitialization() {
         let path = bundle.pathForResource("mø", ofType: "png")!
         let data = NSData(contentsOfFile: path)!
-        let scale = UIScreen.mainScreen().scale
         
         let contentsOfFileImage = AccessibleImage(contentsOfFile: path)!
         contentsOfFileImage.loadAdvancedAccessibility()
@@ -106,7 +105,7 @@ class MuseumGuideTests: XCTestCase {
         let dataImage = AccessibleImage(data: data)!
         dataImage.loadAdvancedAccessibility()
         
-        let dataWithScaleImage = AccessibleImage(data: data, scale: scale)!
+        let dataWithScaleImage = AccessibleImage(data: data, scale: 1)!
         dataWithScaleImage.loadAdvancedAccessibility()
         
         waitForAccessibleImageToLoad(contentsOfFileImage)
