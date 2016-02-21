@@ -29,7 +29,7 @@ public struct ImageAccessibility: Equatable {
         }
         
         let labels = [imageLabel, portraitLabel, creationDateLabel, facesLabel].filter { $0 != nil }.map { $0! }.filter { $0.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) > 0 }
-        return ", ".join(labels)
+        return labels.joinWithSeparator(", ")
     }
     
     public var faceAccessibilityLabels: [String] {
@@ -48,7 +48,7 @@ public struct ImageAccessibility: Equatable {
             let smilingLabel: String? = (face.smiling) ? NSLocalizedString("Smiling", comment: "Smiling") : nil
             
             let labels = [faceLabel, blinkingLabel, smilingLabel].filter { $0 != nil }.map { $0! }.filter { $0.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) > 0 }
-            return ", ".join(labels)
+            return labels.joinWithSeparator(", ")
         }
     }
     

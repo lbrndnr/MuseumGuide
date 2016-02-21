@@ -69,7 +69,7 @@ public class AccessibleImage: UIImage {
         accessibility = loadBasicAccessibilityWithSource(CGImageSourceCreateWithData(data, nil))
     }
 
-    public required init?(imageLiteral name: String) {
+    public required init(imageLiteral name: String) {
         fatalError("init(imageLiteral:) has not been implemented")
     }
 
