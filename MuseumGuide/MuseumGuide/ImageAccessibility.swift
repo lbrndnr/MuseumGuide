@@ -8,6 +8,8 @@
 
 import Foundation
 
+private let dateFormatter = NSDateFormatter()
+
 public struct ImageAccessibility: Equatable {
     
     public var faces: [ImageFaceAccessibility]
@@ -21,7 +23,7 @@ public struct ImageAccessibility: Equatable {
         let imageLabel = NSLocalizedString("Photo", comment: "The photo label")
         let portraitLabel = (portrait) ? NSLocalizedString("Portrait", comment: "The orientation of the image") : NSLocalizedString("Landscape", comment: "The orientation of the image")
         
-        let creationDateLabel = creationDate.map { ImageAccessibility.accessibilityLabelDateFormatter.stringFromDate($0) }
+        let creationDateLabel = creationDate.map { accessibilityLabelDateFormatter.stringFromDate($0) }
         
         var facesLabel: String?
         if faces.count > 0 {
@@ -52,20 +54,15 @@ public struct ImageAccessibility: Equatable {
         }
     }
     
-    // TODO: Use only one date formatter
-    private static var exifParsingDateFormatter: NSDateFormatter = {
-        let formatter = NSDateFormatter()
-        formatter.dateFormat = "yyyy:MM:dd' 'hh:mm:ss"
-        
-        return formatter
-    }()
+    private var exifParsingDateFormatter: NSDateFormatter {
+        dateFormatter.dateFormat = "yyyy:MM:dd' 'hh:mm:ss"
+        return dateFormatter
+    }
     
-    private static var accessibilityLabelDateFormatter: NSDateFormatter = {
-        let formatter = NSDateFormatter()
-        formatter.dateStyle = .LongStyle
-        formatter.timeStyle = .ShortStyle
-        
-        return formatter
+    private var accessibilityLabelDateFormatter: NSDateFormatter = {
+        dateFormatter.dateStyle = .LongStyle
+        dateFormatter.timeStyle = .ShortStyle
+        return dateFormatter
     }()
     
     // MARK: - Initialization
@@ -73,7 +70,7 @@ public struct ImageAccessibility: Equatable {
     init(creationDate creationDateString: String?, portrait: Bool) {
         self.faces = []
         self.portrait = portrait
-        self.creationDate = creationDateString.flatMap { ImageAccessibility.exifParsingDateFormatter.dateFromString($0) }
+        self.creationDate = creationDateString.flatMap { exifParsingDateFormatter.dateFromString($0) }
     }
     
 }
