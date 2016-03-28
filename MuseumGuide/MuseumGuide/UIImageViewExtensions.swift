@@ -33,7 +33,7 @@ extension UIImageView {
         let imageKeyPath = "image"
         
         if newSuperview != nil {
-            center.addObserver(self, selector: #selector(applyImageAccessibility), name: UIAccessibilityVoiceOverStatusChanged, object: nil)
+            center.addObserver(self, selector: #selector(UIImageView.applyImageAccessibility), name: UIAccessibilityVoiceOverStatusChanged, object: nil)
             
             let options = NSKeyValueObservingOptions(rawValue: 0)
             addObserver(self, forKeyPath: imageKeyPath, options: options, context: &KVOContext)
