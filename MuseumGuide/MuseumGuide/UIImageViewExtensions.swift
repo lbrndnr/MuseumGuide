@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-private let KVOContext = UnsafeMutablePointer<()>()
+private var KVOContext = 0
 
 extension UIImageView {
     
@@ -33,10 +33,10 @@ extension UIImageView {
         let imageKeyPath = "image"
         
         if newSuperview != nil {
-            center.addObserver(self, selector: "applyImageAccessibility", name: UIAccessibilityVoiceOverStatusChanged, object: nil)
+            center.addObserver(self, selector: #selector(applyImageAccessibility), name: UIAccessibilityVoiceOverStatusChanged, object: nil)
             
             let options = NSKeyValueObservingOptions(rawValue: 0)
-            addObserver(self, forKeyPath: imageKeyPath, options: options, context: KVOContext)
+            addObserver(self, forKeyPath: imageKeyPath, options: options, context: &KVOContext)
             
             reloadImageAccessibility()
         }
@@ -49,7 +49,7 @@ extension UIImageView {
     // MARK: - Accessibility
     
     public override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
-        if context == KVOContext {
+        if context == &KVOContext {
             reloadImageAccessibility()
         }
         else {
@@ -76,7 +76,7 @@ extension UIImageView {
         }
     }
     
-    private func applyImageAccessibility() {
+    @objc private func applyImageAccessibility() {
         guard let image = image as? AccessibleImage,
           accessibility = image.accessibility,
              imageFrame = imageFrame else {

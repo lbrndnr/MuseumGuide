@@ -26,7 +26,7 @@ public struct ImageFaceAccessibility {
 extension ImageFaceAccessibility: Hashable {
     
     public var hashValue: Int {
-        return Int(smiling) ^ Int(blinking)
+        return smiling.hashValue ^ blinking.hashValue;
     }
     
 }

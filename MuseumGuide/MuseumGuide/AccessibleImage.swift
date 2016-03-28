@@ -117,9 +117,10 @@ public class AccessibleImage: UIImage {
         self.advancedAccessibilityLoaded = true
     }
     
-    private func loadAdvancedAccessibility(var basicAccessibility: ImageAccessibility) -> ImageAccessibility {
-        basicAccessibility.faces = detectFaces()
-        return basicAccessibility
+    private func loadAdvancedAccessibility(basicAccessibility: ImageAccessibility) -> ImageAccessibility {
+        var accessibility = basicAccessibility
+        accessibility.faces = detectFaces()
+        return accessibility
     }
 
 }
